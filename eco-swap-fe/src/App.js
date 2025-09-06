@@ -1,17 +1,20 @@
-import './App.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+// other pages...
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-
-      <main className="flex-grow p-4">
-        <h1 className="text-2xl font-bold">Welcome to EcoFinds</h1>
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-1 container mx-auto p-4">
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          {/* other routes */}
+        </Routes>
       </main>
-
-      <Footer />
     </div>
   );
 }
