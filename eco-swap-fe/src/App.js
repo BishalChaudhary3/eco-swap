@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-// other pages...
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -12,9 +12,9 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          {/* other routes */}
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 }
