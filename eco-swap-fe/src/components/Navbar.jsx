@@ -1,14 +1,52 @@
 // src/components/Navbar.jsx
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
+  const [search, setSearch] = useState("");
+
   return (
-    <nav className="bg-green-600 text-white p-4 flex justify-between">
-      <Link to="/" className="font-bold text-xl">EcoFinds</Link>
-      <div className="space-x-4">
-        <Link to="/login">Login</Link>
-        <Link to="/register">Sign Up</Link>
+    <header className="bg-green-600 text-white shadow-md">
+      {/* Navbar */}
+      <nav className="p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        {/* Logo */}
+        <Link to="/" className="font-bold text-xl">
+          EcoFinds
+        </Link>
+
+        {/* Search Bar */}
+        <div className="flex justify-center md:justify-start">
+          <input
+            type="text"
+            placeholder="Search products..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="p-2 rounded-md w-64 text-black"
+          />
+        </div>
+
+        {/* Auth Links */}
+        <div className="space-x-4 flex justify-center md:justify-end">
+          <Link to="/login" className="hover:underline">
+            Login
+          </Link>
+          <Link to="/register" className="hover:underline">
+            Sign Up
+          </Link>
+        </div>
+      </nav>
+
+      {/* Categories (below navbar) */}
+      <div className="p-3 bg-green-700 flex gap-2 flex-wrap justify-center">
+        {["Clothes", "Electronics", "Furniture", "Books"].map((cat) => (
+          <button
+            key={cat}
+            className="bg-white text-green-700 px-3 py-1 rounded-md hover:bg-gray-100"
+          >
+            {cat}
+          </button>
+        ))}
       </div>
-    </nav>
+    </header>
   );
 }
