@@ -4,7 +4,7 @@ const newProduct = {
   category: "Home Decor",
   price: 1200,
   imageUrl: "placeholder.jpg",
-  ownerId: "64f1b2c3a1e4e2d9f0a12345" // Replace with actual user ID
+  ownerId: "64f1b2c3a1e4e2d9f0a12345" 
 };
 
 fetch("http://localhost:5000/api/products", {
